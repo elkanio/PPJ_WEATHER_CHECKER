@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aktuální počasí</title>
+
+    <link th:href="@{style.css}" rel="stylesheet" type="text/css"  />
+</head>
+<body>
+    <h1>Aktuální počasí v jednotlivých městech.</h1>
+
+    <a href="/" >Zpět</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Město</th>
+            <th>Teplota</th>
+            <th>Vlhkost</th>
+            <th>Srážky</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="weatherRecord : ${weatherRecords}">
+            <td th:text="${weatherRecord.getCity().getName()}"></td>
+            <td th:text="${weatherRecord.getTemperature()}"></td>
+            <td th:text="${weatherRecord.getHumidity()}"></td>
+            <td th:text="${weatherRecord.getPrecipitation()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

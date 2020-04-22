@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FileApp" class="ch.qos.logback.core.FileAppender">
+        <file>
+            log/log.out
+        </file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+
+<!--    <springProfile name="devel">
+        <logger name="ppj" level="DEBUG">
+        </logger>
+    </springProfile>-->
+
+    <springProfile name="prod">
+        <logger name="ppj" level="INFO">
+            <appender-ref ref="FileApp" />
+        </logger>
+    </springProfile>
+
+</configuration>
