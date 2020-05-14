@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @SpringBootApplication
 @EnableTransactionManagement
-@EntityScan("ppj.weather.testy")
+@EntityScan("ppj.weather.model")
 public class Main {
 
     public static void main(String[] args) throws Exception {
